@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>edvice global™ | Global Concierge Services</title>
+    <link rel="icon" type="image/png" href="img/logo-title.jpg">
+    <link rel="stylesheet" href="css/google-fonts.css" />
+    <link rel="stylesheet" href="css/material-symbols.css" />
+    <script src="js/tailwind.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#727783",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f5faff",
+                        "secondary-fixed-dim": "#8bda76",
+                        "inverse-surface": "#2a3136",
+                        "surface-container-high": "#e1e9f0",
+                        "on-primary-container": "#e9efff",
+                        "surface-container-highest": "#dbe4ea",
+                        "primary": "#00549e",
+                        "on-surface-variant": "#414752",
+                        "on-secondary-fixed": "#012200",
+                        "primary-container": "#1c6dc2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eaf2f8",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d3dbe1",
+                        "on-secondary-container": "#29731d",
+                        "on-primary": "#ffffff",
+                        "surface": "#f5faff",
+                        "on-tertiary-fixed-variant": "#930100",
+                        "surface-variant": "#dbe4ea",
+                        "secondary-fixed": "#a6f790",
+                        "outline-variant": "#c1c6d4",
+                        "on-tertiary-fixed": "#410000",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "on-error-container": "#93000a",
+                        "on-background": "#151d21",
+                        "surface-container": "#e7eff5",
+                        "secondary-container": "#a6f790",
+                        "tertiary": "#ad0100",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001c3b",
+                        "tertiary-fixed": "#ffdad4",
+                        "primary-fixed-dim": "#a6c8ff",
+                        "inverse-primary": "#a6c8ff",
+                        "tertiary-container": "#db0100",
+                        "on-tertiary-container": "#ffebe7",
+                        "surface-container-low": "#edf5fb",
+                        "surface-tint": "#005fb0",
+                        "on-surface": "#151d21",
+                        "background": "#f5faff",
+                        "on-secondary-fixed-variant": "#035300",
+                        "on-primary-fixed-variant": "#004786",
+                        "primary-fixed": "#d5e3ff",
+                        "secondary": "#226d17"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5faff;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Prevent anchor jumps to top from fixed header */
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+    <!-- Top Navigation Shell -->
+    <header
+        class="bg-[#f5faff]/90 dark:bg-slate-950/90 backdrop-blur-md full-width top-0 sticky z-50 shadow-sm transition-all duration-300">
+        <div class="flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-8 py-2">
+            <!--px-4 sm:px-8 py-3 sm:py-4-->
+            <a class="flex items-center gap-2 sm:gap-3 group" href="#">
+                <img alt="edvice global™ logo" class="h-8 sm:h-12 object-contain" src="img/logo.png" />
+                <span
+                    class="font-headline font-extrabold text-lg sm:text-xl tracking-tight text-primary whitespace-nowrap">
+                    edvice <label style="color: #50944a;">global</label>
+                </span>
+            </a>
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+                <a class="text-[#151d21] dark:text-slate-300 font-medium hover:text-primary transition-colors duration-300 border-b-2 border-transparent hover:border-primary pb-1"
+                    href="#flights">Flights</a>
+                <a class="text-[#151d21] dark:text-slate-300 font-medium hover:text-primary transition-colors duration-300 border-b-2 border-transparent hover:border-primary pb-1"
+                    href="#holidays">Holidays</a>
+                <a class="text-[#151d21] dark:text-slate-300 font-medium hover:text-primary transition-colors duration-300 border-b-2 border-transparent hover:border-primary pb-1"
+                    href="#visa">Visa</a>
+                <a class="text-[#151d21] dark:text-slate-300 font-medium hover:text-primary transition-colors duration-300 border-b-2 border-transparent hover:border-primary pb-1"
+                    href="#pilgrimage">Hajj &amp; Umrah</a>
+                <a class="text-[#151d21] dark:text-slate-300 font-medium hover:text-primary transition-colors duration-300 border-b-2 border-transparent hover:border-primary pb-1"
+                    href="#hotels">Hotels</a>
+            </nav>
+            <div class="flex items-center gap-3 sm:gap-6">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a class="hover:text-primary transition-all p-2 rounded-full hover:bg-primary/5 active:scale-90"
+                        href="tel:+919061520672">
+                        <span class="material-symbols-outlined text-[20px] sm:text-[24px]"
+                            data-icon="phone">phone</span>
+                    </a>
+                    <a class="hover:text-primary transition-all p-2 rounded-full hover:bg-primary/5 active:scale-90"
+                        href="mailto:Info@edviceglobal.com">
+                        <span class="material-symbols-outlined text-[20px] sm:text-[24px]" data-icon="mail">mail</span>
+                    </a>
+                </div>
+                <a class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all hover:shadow-lg active:scale-95 whitespace-nowrap"
+                    href="https://wa.me/9061520672">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[700px] lg:min-h-[830px] flex items-center overflow-hidden bg-background">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover opacity-20"
+                    data-alt="dramatic wide angle shot of a commercial jet flying through sunset clouds with orange and purple hues"
+                    src="img/hero-bg.webp" />
+                <div class="absolute inset-0 bg-gradient-to-b from-background/0 via-background/60 to-background"></div>
+            </div>
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16 lg:py-0">
+                <div class="space-y-6 sm:space-y-8 text-center lg:text-left reveal">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container mx-auto lg:mx-0">
+                        <span class="text-[0.625rem] sm:text-[0.6875rem] uppercase tracking-wider font-bold">
+                            Experience Travel the Premium Way
+                        </span>
+                    </div>
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-on-surface">
+                        Trusted Visa Services,<br /><span class="text-primary">Every Step.</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-on-surface-variant max-w-lg leading-relaxed mx-auto lg:mx-0">
+                        From visa processing to holy pilgrimages, edvice global™ offers a sophisticated suite of travel
+                        solutions for the modern explorer.</p>
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+                        <a class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-3.5 sm:py-4 rounded-full font-bold transition-all hover:shadow-xl active:scale-95 text-center"
+                            href="#services">
+                            Explore Services
+                        </a>
+                        <a class="flex items-center justify-center gap-3 bg-surface-container-lowest text-primary px-8 py-3.5 sm:py-4 rounded-full font-bold shadow-sm transition-all hover:bg-surface-container-low active:scale-95"
+                            href="https://wa.me/9061520672">
+                            <span class="material-symbols-outlined" data-icon="chat">chat</span>
+                            WhatsApp Support
+                        </a>
+                    </div>
+                </div>
+                <div class="relative reveal delay-200">
+                    <div
+                        class="aspect-[4/5] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-700 max-w-[500px] mx-auto lg:max-w-none bg-surface-container">
+                        <div class="carousel-container h-full w-full" id="heroCarousel">
+                            <div class="carousel-track h-full" id="carouselTrack">
+                                <div class="carousel-slide h-full">
+                                    <img class="w-full h-full object-cover"
+                                        data-alt="aerial view of a luxury bus traveling on a winding coastal road with turquoise water and cliffs"
+                                        src="img/carousel-1.webp" />
+                                </div>
+                                <div class="carousel-slide h-full">
+                                    <img class="w-full h-full object-cover"
+                                        data-alt="close up of a stack of international passports and travel documents with a gold compass"
+                                        src="img/carousel-4.jpg" />
+                                </div>
+                                <div class="carousel-slide h-full">
+                                    <img class="w-full h-full object-cover"
+                                        data-alt="view from an airplane window of the wing above a sea of white clouds at sunset"
+                                        src="img/carousel-3.webp" />
+                                </div>
+                                <div class="carousel-slide h-full">
+                                    <img class="w-full h-full object-cover"
+                                        data-alt="aerial view of a luxury bus traveling on a winding coastal road with turquoise water and cliffs"
+                                        src="img/bag.jpg" />
+                                </div>
+                            </div>
+                            <!-- Carousel Indicators -->
+                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                                <button
+                                    class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300"
+                                    data-slide="0"></button>
+                                <button
+                                    class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300"
+                                    data-slide="1"></button>
+                                <button
+                                    class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300"
+                                    data-slide="2"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-8 bg-surface-container-lowest p-4 sm:p-6 rounded-2xl shadow-xl max-w-[160px] sm:max-w-[200px] z-30">
+                        <p class="text-xs sm:text-sm font-medium text-on-surface-variant">Global Access in</p>
+                        <p class="text-xl sm:text-2xl font-bold text-secondary">24 Hours</p>
+                        <p class="text-[0.625rem] sm:text-[0.6875rem] uppercase tracking-widest text-outline mt-1">Visa
+                            Processing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Bento Grid -->
+        <section class="py-16 sm:py-24 bg-surface-container-low" id="services">
+            <div class="max-w-7xl mx-auto px-4 sm:px-8">
+                <div class="mb-12 sm:mb-16 reveal">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-4">Our Premium Services</h2>
+                    <p class="text-on-surface-variant">Tailored travel solutions designed for precision and peace of
+                        mind by edvice global™.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <!-- Flight Tickets -->
+                    <div class="md:col-span-8 group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 reveal"
+                        id="flights">
+                        <div class="aspect-[16/9] overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                data-alt="interior of a modern luxury airplane cabin with soft ambient lighting and spacious seating"
+                                src="img/inside-flight.jpg" />
+                        </div>
+                        <div
+                            class="p-6 sm:p-8 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-2">Flight Tickets</h3>
+                            <p class="text-white/80 max-w-md text-sm sm:text-base">Global connectivity across 200+
+                                airlines with exclusive business and first-class inventory.</p>
+                            <a class="mt-4 sm:mt-6 inline-flex items-center gap-2 px-6 py-2.5 sm:py-3 bg-primary rounded-full text-sm font-bold hover:bg-primary-container transition-colors"
+                                href="tel:+919061520672">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Visa Services -->
+                    <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 reveal"
+                        id="visa">
+                        <div class="p-6 sm:p-8 h-full flex flex-col justify-between">
+                            <div>
+                                <div
+                                    class="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary mb-6">
+                                    <span class="material-symbols-outlined"
+                                        data-icon="verified_user">verified_user</span>
+                                </div>
+                                <h3 class="text-lg sm:text-xl font-bold mb-3">Visa Assistance</h3>
+                                <p class="text-on-surface-variant text-sm leading-relaxed">Fast-track processing for
+                                    Schengen, USA, UK, and major global destinations with expert consultation from
+                                    edvice global™.</p>
+                            </div>
+                            <div class="mt-8 border-t border-outline-variant pt-6">
+                                <span
+                                    class="text-[0.625rem] sm:text-[0.6875rem] uppercase tracking-widest font-bold text-primary">Success
+                                    Rate: 98.4%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pilgrimage -->
+                    <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 reveal"
+                        id="pilgrimage">
+                        <div class="aspect-square">
+                            <img class="w-full h-full object-cover"
+                                data-alt="The Kaaba in Mecca with a crowd of pilgrims during evening time with soft spiritual glow"
+                                src="img/pilgrimage.webp" />
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold mb-2">Hajj &amp; Umrah</h3>
+                            <p class="text-on-surface-variant text-sm">Spiritual journeys managed with the highest level
+                                of care and proximity to sacred sites.</p>
+                        </div>
+                    </div>
+                    <!-- Holidays -->
+                    <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 reveal"
+                        id="holidays">
+                        <div class="aspect-square">
+                            <img class="w-full h-full object-cover"
+                                data-alt="stunning tropical beach with white sand and clear turquoise water in the Maldives"
+                                src="img/sland.jpg" />
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold mb-2">Holiday Packages</h3>
+                            <p class="text-on-surface-variant text-sm">Curated escapes to the world's most exotic
+                                destinations with all-inclusive luxury.</p>
+                        </div>
+                    </div>
+                    <!-- Hotels -->
+                    <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 reveal"
+                        id="hotels">
+                        <div class="aspect-square">
+                            <img class="w-full h-full object-cover"
+                                data-alt="luxury hotel infinity pool overlooking the ocean at sunset with warm gold lighting"
+                                src="img/hotels.webp" />
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold mb-2">Luxury Hotels</h3>
+                            <p class="text-on-surface-variant text-sm">Preferred rates and VIP amenities at the world's
+                                leading five-star properties.</p>
+                        </div>
+                    </div>
+                    <!-- Secondary Services -->
+                    <div class="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
+                        <div class="group bg-surface-container-lowest p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all"
+                            id="train">
+                            <span class="material-symbols-outlined text-primary mb-4" data-icon="train">train</span>
+                            <h3 class="font-bold mb-1">Train Tickets</h3>
+                            <p class="text-xs text-on-surface-variant">Global rail network access.</p>
+                        </div>
+                        <div class="group bg-surface-container-lowest p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all"
+                            id="bus">
+                            <span class="material-symbols-outlined text-primary mb-4"
+                                data-icon="directions_bus">directions_bus</span>
+                            <h3 class="font-bold mb-1">Bus Tickets</h3>
+                            <p class="text-xs text-on-surface-variant">Reliable intercity transfers.</p>
+                        </div>
+                    </div>
+                    <!-- Pilgrimage Detail -->
+                    <div
+                        class="md:col-span-6 bg-primary p-6 sm:p-8 rounded-3xl text-white flex flex-col justify-center reveal">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Pilgrimage Specialists</h3>
+                        <p class="text-white/80 mb-6 leading-relaxed text-sm sm:text-base">Dedicated logistics for
+                            sacred journeys, ensuring spiritual focus while edvice global™ handles the intricate details
+                            of travel and accommodation.</p>
+                        <div class="flex gap-4">
+                            <a class="bg-white text-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-sm hover:bg-slate-100 transition-colors"
+                                href="https://wa.me/9061520672">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Section -->
+        <section class="py-16 sm:py-24 bg-background">
+            <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center space-y-4 reveal">
+                    <span class="material-symbols-outlined text-secondary text-5xl" data-icon="verified"
+                        style="font-variation-settings: 'FILL' 1;">verified</span>
+                    <h3 class="text-lg sm:text-xl font-bold">Accredited Experts</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed px-4">edvice global™ is a fully licensed
+                        and bonded travel partner providing secure booking services since 2012.</p>
+                </div>
+                <div class="text-center space-y-4 reveal delay-100">
+                    <span class="material-symbols-outlined text-secondary text-5xl" data-icon="support_agent"
+                        style="font-variation-settings: 'FILL' 1;">support_agent</span>
+                    <h3 class="text-lg sm:text-xl font-bold">24/7 Concierge</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed px-4">Our dedicated team at edvice global™
+                        is available around the clock to handle emergencies and travel updates.</p>
+                </div>
+                <div class="text-center space-y-4 reveal delay-200">
+                    <span class="material-symbols-outlined text-secondary text-5xl" data-icon="handshake"
+                        style="font-variation-settings: 'FILL' 1;">handshake</span>
+                    <h3 class="text-lg sm:text-xl font-bold">Global Network</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed px-4">Deep relationships with global
+                        partners ensuring priority service for all edvice global™ concierge clients.</p>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-16 sm:py-20 px-4 sm:px-8">
+            <div
+                class="max-w-5xl mx-auto rounded-[2.5rem] sm:rounded-[3rem] bg-surface-container-highest p-8 sm:p-20 text-center relative overflow-hidden reveal">
+                <div
+                    class="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface mb-6 relative z-10">Start Your Elite
+                    Journey Today</h2>
+                <p class="text-on-surface-variant text-base sm:text-lg mb-10 sm:mb-12 max-w-2xl mx-auto relative z-10">
+                    Connect with edvice global™ consultants for personalized itineraries and seamless visa processing.
+                </p>
+                <div class="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center relative z-10">
+                    <a class="flex items-center justify-center gap-3 bg-white text-on-surface px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold shadow-sm hover:shadow-md transition-all active:scale-95"
+                        href="tel:+919061520672">
+                        <span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+                        <span class="text-sm sm:text-base">+91 906 152 0672</span>
+                    </a>
+                    <a class="flex items-center justify-center gap-3 bg-white text-on-surface px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold shadow-sm hover:shadow-md transition-all active:scale-95"
+                        href="mailto:info@edviceglobal.com">
+                        <span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+                        <span class="text-sm sm:text-base text-nowrap">info@edviceglobal.com</span>
+                    </a>
+                    <a class="flex items-center justify-center gap-3 bg-secondary text-white px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold shadow-lg hover:brightness-110 transition-all active:scale-95"
+                        href="https://wa.me/9061520672">
+                        <span class="material-symbols-outlined" data-icon="chat">chat</span>
+                        <span class="text-sm sm:text-base">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#dbe4ea] dark:bg-slate-900 full-width border-t-0">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-7xl mx-auto px-4 sm:px-8 py-16">
+            <div class="space-y-6">
+                <div class="flex items-center gap-3">
+                    <img alt="edvice global™" class="h-10 object-contain" src="img/logo.png" />
+                    <span class="font-headline font-bold text-lg text-primary">edvice <label style="color: #50944a;">global™</label></span>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">edvice global™ Concierge
+                    delivers seamless, personalized travel experiences with precision and care. From visa support to
+                    curated itineraries and exclusive global access, every detail is expertly managed. We combine
+                    luxury, convenience, and reliability to create journeys that exceed expectations—turning every trip
+                    into a smooth, memorable, and truly exceptional experience.</p>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-[#151d21] dark:text-white mb-8">
+                    Services
+                </h4>
+                <ul class="space-y-4">
+                    <li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
+                            href="#visa">Visa Guide</a></li>
+                    <li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
+                            href="#flights">Flight Tickets</a></li>
+                    <li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
+                            href="#pilgrimage">Hajj &amp; Umrah Details</a></li>
+                    <li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
+                            href="#">Corporate Travel</a></li>
+                    <li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
+                            href="#">Certificate Attestation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-[#151d21] dark:text-white mb-8">
+                    Contact Info
+                </h4>
+                <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl"
+                            data-icon="location_on">location_on</span>
+                        <span>Hilite Business Park, Phase 2,<br />Calicut, Kerala</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl" data-icon="call">call</span>
+                        <span>
+                            +91 906 152 0672<br />
+                            +91 920 752 0675
+                        </span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl"
+                            data-icon="schedule">schedule</span>
+                        <span>Mon - Sat: 09:00 - 18:00</span>
+                    </li>
+                    <li class="pt-4 flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-primary shadow-sm hover:shadow-md transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg"
+                                data-icon="public">public</span></a>
+                        <a class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-primary shadow-sm hover:shadow-md transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg"
+                                data-icon="chat_bubble">chat_bubble</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-8 pb-12 pt-8 border-t border-slate-300 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-xs text-slate-600 dark:text-slate-400">© 2024 edvice global™. All rights reserved.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a class="text-xs text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                    href="#">Terms of Service</a>
+                <a class="text-xs text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                    href="#">Privacy Policy</a>
+                <a class="text-xs text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                    href="#">Contact Support</a>
+                <a class="text-xs text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                    href="#">Developed by Muj Technologies</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Carousel Logic
+        const track = document.getElementById('carouselTrack');
+        const slides = Array.from(track.children);
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        const slideCount = slides.length;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('bg-white', 'w-4');
+                    dot.classList.remove('bg-white/50', 'w-2');
+                } else {
+                    dot.classList.remove('bg-white', 'w-4');
+                    dot.classList.add('bg-white/50', 'w-2');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateCarousel();
+        }
+
+        // Auto loop
+        let carouselInterval = setInterval(nextSlide, 5000);
+
+        // Manual navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(carouselInterval);
+                currentIndex = index;
+                updateCarousel();
+                carouselInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        // Initialize carousel state
+        updateCarousel();
+
+        // Reveal animations on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // Active state for navigation based on scroll position
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("nav a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("text-primary", "border-primary");
+                link.classList.add("text-[#151d21]", "border-transparent");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.remove("text-[#151d21]", "border-transparent");
+                    link.classList.add("text-primary", "border-primary");
+                }
+            });
+        });
+
+        // Sticky header shadow refinement
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'py-2');
+                header.classList.remove('shadow-sm', 'py-4');
+            } else {
+                header.classList.add('shadow-sm', 'py-4');
+                header.classList.remove('shadow-md', 'py-2');
+            }
+        });
+    </script>
+</body>
+
+</html>
